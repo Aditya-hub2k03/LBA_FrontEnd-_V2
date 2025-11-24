@@ -1,0 +1,184 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 15%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 91% 70%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 15%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 40%;
+    --accent: 186 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+    --neon-blue: 217 91% 60%;
+    --neon-cyan: 186 100% 50%;
+    --dark-bg: 222 47% 11%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 186 100% 50%;
+    --chart-3: 142 76% 36%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 84% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 91% 70%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 186 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
+    --neon-blue: 217 91% 60%;
+    --neon-cyan: 186 100% 50%;
+    --dark-bg: 222 47% 8%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 186 100% 50%;
+    --chart-3: 142 76% 36%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 84% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.5),
+                0 0 40px hsl(var(--neon-blue) / 0.3);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--neon-blue) / 0.8),
+                 0 0 20px hsl(var(--neon-blue) / 0.6),
+                 0 0 30px hsl(var(--neon-blue) / 0.4);
+  }
+
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .glass-effect {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px hsl(var(--primary) / 0.3);
+  }
+
+  .slot-available {
+    @apply bg-green-500/20 border-green-500 text-green-700 dark:text-green-400;
+  }
+
+  .slot-booked {
+    @apply bg-red-500/20 border-red-500 text-red-700 dark:text-red-400;
+  }
+
+  .slot-blocked {
+    @apply bg-yellow-500/20 border-yellow-500 text-yellow-700 dark:text-yellow-400;
+  }
+
+  .slot-hot {
+    @apply bg-orange-500/20 border-orange-500 text-orange-700 dark:text-orange-400;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes loadingBar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loadingBar 1.5s ease-in-out infinite;
+}
