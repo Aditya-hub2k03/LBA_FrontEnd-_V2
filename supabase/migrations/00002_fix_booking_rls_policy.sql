@@ -14,7 +14,7 @@ This migration adds a more permissive RLS policy for bookings to allow authentic
 */
 
 -- Drop the existing restrictive policy
-DROP POLICY IF EXISTS "Users can create own bookings" ON bookings;
+DROP POLICY IF EXISTS "Users can create own bookings" ON bookings; 
 
 -- Create a more permissive policy that allows any authenticated user to create bookings
 CREATE POLICY "Authenticated users can create bookings" ON bookings
