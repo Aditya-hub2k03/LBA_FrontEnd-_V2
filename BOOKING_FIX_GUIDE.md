@@ -12,7 +12,7 @@ When users tried to use "dummy credentials" (test@user.com), they weren't actual
  
 ## Solution Implemented
 
-### 1. Enhanced Error Handling
+### 1. Enhanced Error Handling 
 **File: `/src/db/api.ts`**  
 - Added session check before creating booking
 - Added detailed error messages for authentication failures
