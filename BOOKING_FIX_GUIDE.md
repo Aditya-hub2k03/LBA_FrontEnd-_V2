@@ -9,7 +9,7 @@ The issue was caused by Row Level Security (RLS) policies on the `bookings` tabl
 2. The `user_id` in the booking must match the authenticated user's ID (`auth.uid()`)
 
 When users tried to use "dummy credentials" (test@user.com), they weren't actually authenticated in Supabase, causing the booking insert to fail due to RLS restrictions.
- 
+   
 ## Solution Implemented
 
 ### 1. Enhanced Error Handling 
